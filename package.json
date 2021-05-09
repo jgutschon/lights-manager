@@ -1,0 +1,14 @@
+{
+  "name": "lights-manager",
+  "version": "1.0.0",
+  "description": "An Electron-Arduino LED light controller",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Jon Gutschon",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^12.0.7"
+  }
+}
