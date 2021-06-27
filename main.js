@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const arduino = require('./arduino');
+const serial = require('./serial');
 
 createWindow = () => {
   const window = new BrowserWindow({
@@ -20,7 +20,7 @@ createWindow = () => {
 startApp = async () => {
   await app.whenReady();
   createWindow();
-  arduino.setupSerial();
+  serial.setupSerial();
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
