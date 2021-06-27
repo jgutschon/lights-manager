@@ -1,8 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
+// import { setupSerial } from '../src/serial';
 
-function createWindow() {
+const createWindow = () => {
   const window = new BrowserWindow({
     width: 800,
     height: 600,
@@ -19,7 +20,13 @@ function createWindow() {
   }
 };
 
-app.whenReady().then(createWindow);
+const startApp = async () => {
+  await app.whenReady();
+  createWindow();
+  // setupSerial();
+};
+
+startApp();
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
