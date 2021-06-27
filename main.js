@@ -1,9 +1,9 @@
 const { app, BrowserWindow } = require('electron');
-const { exec, execFile } = require('child_process');
 const path = require('path');
+const arduino = require('./arduino');
 
-function createWindow() {
-  const mainWindow = new BrowserWindow({
+createWindow = () => {
+  const window = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -11,28 +11,16 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadFile('index.html');
+  window.loadFile('index.html');
 
   // Open DevTools
-  // mainWindow.webContents.openDevTools();
-};
-
-setupSerial = async () => {
-  const child = execFile('bash', ['./shell/findPort.sh'], (err, stdout, stderr) => {
-    if (err) {
-      console.error('stderr', stderr);
-      throw err;
-    }
-    const port = stdout;
-    exec(`stty 9600 -F ${port} raw -echo`);
-    exec(`cat ${port}`);
-  });
+  // window.webContents.openDevTools();
 };
 
 startApp = async () => {
   await app.whenReady();
   createWindow();
-  setupSerial();
+  arduino.setupSerial();
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
