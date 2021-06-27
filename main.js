@@ -1,26 +1,28 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+const serial = require('./serial');
 
-function createWindow() {
-  const mainWindow = new BrowserWindow({
+createWindow = () => {
+  const window = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, 'preload.js'),
     },
   });
 
-  mainWindow.loadFile("index.html");
+  window.loadFile('index.html');
 
   // Open DevTools
-  // mainWindow.webContents.openDevTools()
-}
+  // window.webContents.openDevTools();
+};
 
 startApp = async () => {
   await app.whenReady();
   createWindow();
+  serial.setupSerial();
 
-  app.on("activate", function () {
+  app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -30,6 +32,6 @@ startApp = async () => {
 startApp();
 
 // Quit when all windows are closed, except on macOS
-app.on("window-all-closed", function () {
-  if (process.platform !== "darwin") app.quit();
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit();
 });
