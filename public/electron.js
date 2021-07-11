@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
-const isDev = require('electron-is-dev');
+import { app, BrowserWindow, ipcMain } from 'electron';
+import path from 'path';
+import isDev from 'electron-is-dev';
 // import { setupSerial } from '../src/serial';
 
 const createWindow = () => {
@@ -23,6 +23,18 @@ const createWindow = () => {
 const startApp = async () => {
   await app.whenReady();
   createWindow();
+
+  // ipc messaging
+  ipcMain.on('async-msg', (event, arg) => {
+    console.log(arg);
+    event.reply('async-reply', 'pong');
+  });
+
+  ipcMain.on('sync-msg', (event, arg) => {
+    console.log(arg);
+    event.returnValue = 'pong';
+  });
+
   // setupSerial();
 };
 

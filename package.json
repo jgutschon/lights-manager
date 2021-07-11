@@ -18,8 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "electron": "wait-on tcp:3000 && electron-webpack dev",
     "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "webpack": "electron-webpack"
   },
   "eslintConfig": {
     "extends": [
@@ -40,11 +41,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.1.0",
     "concurrently": "^6.2.0",
     "electron": "^13.1.4",
     "electron-builder": "^22.11.7",
     "electron-is-dev": "^2.0.0",
+    "electron-webpack": "^2.8.2",
     "react-scripts": "4.0.3",
-    "wait-on": "^6.0.0"
+    "wait-on": "^6.0.0",
+    "webpack": "^4.44.2"
   }
 }
