@@ -1,5 +1,5 @@
-import './App.css';
-import ToggleSwitch from './components/ToggleSwitch';
+import "./App.css";
+import ToggleSwitch from "./components/ToggleSwitch";
 
 const App = () => {
   return (
