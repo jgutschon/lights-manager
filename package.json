@@ -1,27 +1,14 @@
 {
   "name": "lights-manager",
   "version": "0.1.0",
+  "license": "MIT",
   "main": "src/main/main.js",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "child_process": "^1.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "source-map-support": "^0.5.19",
-    "web-vitals": "^1.1.2"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron": "wait-on tcp:3000 && electron-webpack dev",
-    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn electron\"",
-    "webpack": "electron-webpack dev"
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +27,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "child_process": "^1.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "source-map-support": "^0.5.19",
+    "web-vitals": "^1.1.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",

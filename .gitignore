@@ -8,10 +8,6 @@ node_modules
 # testing
 coverage
 
-# dev
-.prettierrc.json
-.vscode
-
 # build
 dist
 
@@ -25,3 +21,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# dev
+.prettierrc.json
+.vscode

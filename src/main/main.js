@@ -1,6 +1,6 @@
-import { app, BrowserWindow } from 'electron';
-import path from 'path';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
+import path from 'path';
 // import { setupSerial } from '../src/serial';
 
 const createWindow = () => {
@@ -19,7 +19,7 @@ const createWindow = () => {
     );
     window.webContents.openDevTools({ mode: 'detach' });
   } else {
-    window.loadURL(`file://${path.join(__dirname, '../renderer/index.html')}`);
+    window.loadFile(path.resolve(__dirname, 'index.html'));
   }
 };
 
@@ -27,16 +27,16 @@ const startApp = async () => {
   await app.whenReady();
   createWindow();
 
-  // // ipc messaging
-  // ipcMain.on('async-msg', (event, arg) => {
-  //   console.log(arg);
-  //   event.reply('async-reply', 'pong');
-  // });
+  // ipc messaging
+  ipcMain.on('async-msg', (event, arg) => {
+    console.log(arg);
+    event.reply('async-reply', 'pong');
+  });
 
-  // ipcMain.on('sync-msg', (event, arg) => {
-  //   console.log(arg);
-  //   event.returnValue = 'pong';
-  // });
+  ipcMain.on('sync-msg', (event, arg) => {
+    console.log(arg);
+    event.returnValue = 'pong';
+  });
 
   // setupSerial();
 };

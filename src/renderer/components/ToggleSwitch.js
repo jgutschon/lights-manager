@@ -1,21 +1,20 @@
+import { ipcRenderer } from 'electron';
 import React, { useState } from 'react';
 import Switch from '@material-ui/core/Switch';
 // import { sendMsg } from '../serial';
-
-// const { ipcRenderer } = require('electron');
 
 const ToggleSwitch = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    // console.log(ipcRenderer.sendSync('sync-msg', 'ping'));
+    console.log(ipcRenderer.sendSync('sync-msg', 'ping'));
 
-    // ipcRenderer.on('async-reply', (event, arg) => {
-    //   console.log(arg);
-    // });
+    ipcRenderer.on('async-reply', (event, arg) => {
+      console.log(arg);
+    });
 
-    // ipcRenderer.send('async-msg', 'ping');
+    ipcRenderer.send('async-msg', 'ping');
 
     // checked
     //   ? ipcRenderer.send('toggle-switch', 'o')
