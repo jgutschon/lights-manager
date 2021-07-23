@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
 import path from 'path';
-// import { setupSerial } from '../src/serial';
+import { setupSerial, sendMsg } from '../common/serial';
 
 const createWindow = () => {
   const window = new BrowserWindow({
@@ -26,19 +26,23 @@ const createWindow = () => {
 const startApp = async () => {
   await app.whenReady();
   createWindow();
+  setupSerial();
 
-  // ipc messaging
-  ipcMain.on('async-msg', (event, arg) => {
+  // // ipc messaging
+  // ipcMain.on('async-msg', (event, arg) => {
+  //   console.log(arg);
+  //   event.reply('async-reply', 'pong');
+  // });
+
+  // ipcMain.on('sync-msg', (event, arg) => {
+  //   console.log(arg);
+  //   event.returnValue = 'pong';
+  // });
+
+  ipcMain.on('toggle-switch', (event, arg) => {
     console.log(arg);
-    event.reply('async-reply', 'pong');
+    sendMsg(arg);
   });
-
-  ipcMain.on('sync-msg', (event, arg) => {
-    console.log(arg);
-    event.returnValue = 'pong';
-  });
-
-  // setupSerial();
 };
 
 startApp();
