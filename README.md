@@ -5,20 +5,25 @@
 Some packages used in this project such as `electron-webpack` and `electron-builder` strongly recommend the use of `yarn` for package management, so it is used rather than `npm`.
 
 Clone the repo:
+
 `git clone git@github.com:jgutschon/lights-manager.git`
 
 Install yarn:
+
 `npm i -g yarn`
 
 Install the project dependencies:
+
 `yarn`
 
 ## Available Scripts
 
 Start the app locally for development:
+
 `yarn dev`
 
-Build a package from source:
+Build a package from source (defaulted to deb):
+
 `yarn build`
 
 ## Learn More
