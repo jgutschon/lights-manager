@@ -1,7 +1,19 @@
 {
   "name": "lights-manager",
+  "description": "A frontend app used with 'arduino-led-control', built with Electron + React.",
   "version": "0.1.0",
   "license": "MIT",
+  "author": {
+    "name": "Jon Gutschon"
+  },
+  "repository": {
+    "url": "https://github.com/jgutschon/lights-manager"
+  },
+  "build": {
+    "appId": "com.electron.lights-manager",
+    "productName": "Lights Manager",
+    "target": "deb"
+  },
   "main": "src/main/main.js",
   "private": true,
   "scripts": {
