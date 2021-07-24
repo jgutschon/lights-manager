@@ -1,25 +1,14 @@
 {
   "name": "lights-manager",
   "version": "0.1.0",
-  "main": "public/electron.js",
+  "license": "MIT",
+  "main": "src/main/main.js",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "child_process": "^1.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "web-vitals": "^1.1.2"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "eslintConfig": {
     "extends": [
@@ -39,12 +28,28 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "child_process": "^1.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "source-map-support": "^0.5.19",
+    "web-vitals": "^1.1.2"
+  },
   "devDependencies": {
+    "@babel/preset-react": "^7.14.5",
     "concurrently": "^6.2.0",
     "electron": "^13.1.4",
     "electron-builder": "^22.11.7",
     "electron-is-dev": "^2.0.0",
+    "electron-webpack": "^2.8.2",
+    "node-sass": "^6.0.1",
     "react-scripts": "4.0.3",
-    "wait-on": "^6.0.0"
+    "sass-loader": "^12.1.0",
+    "wait-on": "^6.0.0",
+    "webpack": "^4.44.2"
   }
 }

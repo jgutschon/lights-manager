@@ -1,9 +1,9 @@
 import { exec, execFile } from 'child_process';
+import path from 'path';
 
 const getSerialPort = () => {
   const child = execFile(
-    'bash',
-    ['./shell/findPort.sh'],
+    path.resolve(__dirname, '../shell/findPort.sh'),
     (err, stdout, stderr) => {
       if (err) {
         console.error('stderr', stderr);
@@ -21,7 +21,9 @@ const setupSerial = () => {
 
 const sendMsg = (msg) => {
   const port = getSerialPort();
+  console.log('port:', port);
+  console.log('msg:', msg);
   exec(`echo ${msg} > ${port}`);
 };
 
-export { getSerialPort, setupSerial, sendMsg };
+export { setupSerial, sendMsg };
