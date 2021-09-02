@@ -7,13 +7,6 @@ const ToggleSwitch = () => {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    // console.log(ipcRenderer.sendSync('sync-msg', 'ping'));
-
-    // ipcRenderer.on('async-reply', (event, arg) => {
-    //   console.log(arg);
-    // });
-
-    // ipcRenderer.send('async-msg', 'ping');
 
     event.target.checked
       ? ipcRenderer.send('toggle-switch', 'o')

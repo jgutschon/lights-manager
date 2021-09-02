@@ -28,19 +28,7 @@ const startApp = async () => {
   createWindow();
   setupSerial();
 
-  // // ipc messaging
-  // ipcMain.on('async-msg', (event, arg) => {
-  //   console.log(arg);
-  //   event.reply('async-reply', 'pong');
-  // });
-
-  // ipcMain.on('sync-msg', (event, arg) => {
-  //   console.log(arg);
-  //   event.returnValue = 'pong';
-  // });
-
   ipcMain.on('toggle-switch', (event, arg) => {
-    console.log(arg);
     sendMsg(arg);
   });
 };
