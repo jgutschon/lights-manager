@@ -29,7 +29,6 @@ const startApp = async () => {
   setupSerial();
 
   ipcMain.on('toggle-switch', (event, arg) => {
-    console.log(arg);
     sendMsg(arg);
   });
 };
