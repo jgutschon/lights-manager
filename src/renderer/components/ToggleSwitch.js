@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Switch from '@material-ui/core/Switch';
 
 const ToggleSwitch = () => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);

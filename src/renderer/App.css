@@ -1,18 +1,26 @@
-.App {
+:root {
+  --primary-color: #17a2b8;
+  --dark-color: #343a40;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+.app {
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.app-header {
+  background-color: var(--dark-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--light-color);
 }
 
-.App-link {
-  color: #61dafb;
+.app-link {
+  color: var(--primary-color);
 }
