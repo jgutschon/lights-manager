@@ -13,6 +13,8 @@ const createWindow = () => {
     },
   });
 
+  window.removeMenu();
+
   if (isDev) {
     window.loadURL(
       `http://${process.env.ELECTRON_WEBPACK_WDS_HOST}:${process.env.ELECTRON_WEBPACK_WDS_PORT}`
