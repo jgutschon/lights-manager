@@ -24,3 +24,11 @@
 .app-link {
   color: var(--primary-color);
 }
+
+.sidebar {
+  background-color: var(--dark-color);
+  max-width: 20vw;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-color);
+}

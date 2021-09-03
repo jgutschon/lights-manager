@@ -1,15 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ToggleSwitch from './components/ToggleSwitch';
-import SideBar from './components/SideBar';
+import Sidebar from './components/Sidebar';
 
 import './App.css';
 
 const App = () => {
   return (
-    <div className="app">
-      <ToggleSwitch />
-      <SideBar />
-    </div>
+    <Router>
+      <div className="app">
+        <Sidebar />
+        <ToggleSwitch />
+        <Switch>
+          <Route exact path="profiles" />
+          <Route exact path="lighting" />
+          <Route exact path="settings" />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
