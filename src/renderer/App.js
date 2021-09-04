@@ -12,7 +12,7 @@ const App = () => {
     <Router>
       <div className="app">
         <Sidebar />
-        {/* <ToggleSwitch /> */}
+        <ToggleSwitch />
         <Switch>
           <Route exact path="profiles" component={Profiles} />
           <Route exact path="lighting" component={Lighting} />
