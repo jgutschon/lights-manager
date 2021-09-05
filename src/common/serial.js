@@ -20,17 +20,18 @@ const getSerialPort = () => {
 const setupSerial = async () => {
   const port = await getSerialPort();
   exec(`stty 9600 -F ${port} raw -echo`);
-};
 
-const sendMsg = async (msg) => {
-  const port = await getSerialPort();
   const cat = spawn('cat', ['-v', port], {
     shell: true,
   });
 
-  exec(`echo -e \'${msg}\' > ${port}`);
-
   cat.on('exit', (code) => console.log(`cat exited with code: ${code}`));
+};
+
+const sendMsg = async (msg) => {
+  const port = await getSerialPort();
+
+  exec(`echo -e \'${msg}\' > ${port}`);
 };
 
 export { setupSerial, sendMsg };

@@ -5,13 +5,16 @@ import { setupSerial, sendMsg } from '../common/serial';
 
 const createWindow = () => {
   const window = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 800,
+    minHeight: 600,
+    useContentSize: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
   });
+
+  window.removeMenu();
 
   if (isDev) {
     window.loadURL(
