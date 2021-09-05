@@ -10,7 +10,6 @@
   background-color: var(--dark-color);
   height: 100vh;
   width: 100vw;
-  text-align: center;
 }
 
 .sidebar {
@@ -18,13 +17,9 @@
   color: var(--light-color);
   height: 100vh;
   width: 20vw;
-}
-
-.sidebar-items {
   align-items: center;
   justify-content: center;
-  padding-left: 0;
-  margin: 0;
+  text-align: center;
 }
 
 .sidebar-element {

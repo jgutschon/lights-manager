@@ -21,8 +21,8 @@ const Sidebar = () => {
   ];
 
   return (
-    <nav className="sidebar">
-      <ul className="sidebar-items">
+    <nav>
+      <ul style={{ paddingLeft: 0, margin: 0 }}>
         {SidebarData.map((item, index) => {
           return (
             <Link to={item.path} key={index} style={{ textDecoration: 'none' }}>

@@ -11,13 +11,15 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <Sidebar />
-        <ToggleSwitch />
-        <Switch>
-          <Route exact path="profiles" component={Profiles} />
-          <Route exact path="lighting" component={Lighting} />
-          <Route exact path="settings" component={Settings} />
-        </Switch>
+        <div className="sidebar">
+          <ToggleSwitch />
+          <Sidebar />
+          <Switch>
+            <Route exact path="profiles" component={Profiles} />
+            <Route exact path="lighting" component={Lighting} />
+            <Route exact path="settings" component={Settings} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
