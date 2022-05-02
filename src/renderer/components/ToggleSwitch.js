@@ -24,8 +24,8 @@ const ToggleSwitch = () => {
     <Switch
       checked={checked}
       onChange={handleChange}
-      color="primary"
-      name="checkedB"
+      color='primary'
+      name='checkedB'
       inputProps={{ 'aria-label': 'primary checkbox' }}
     />
   );
